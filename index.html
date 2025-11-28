@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Education 2025</title>
+
+    <!-- CSS-ээ салгасан хувилбар -->
+    <link styles.css/>
+</head>
+<body>
+
+    <div class="vertical-marquee-container">
+        <div class="flowing-text">
+            AI FOR WOMEN 100 БАГШ ХӨТӨЛБӨР • AI FOR WOMEN 100 БАГШ ХӨТӨЛБӨР • 
+        </div>
+    </div>
+
+    <div class="main-wrapper">
+        <header>
+            <nav>
+                <ul>
+                    <!-- АНГИ -->
+                    <li class="dropdown">
+                        <button class="nav-btn main-nav dropdown-btn">Анги ▾</button>
+                        <div class="dropdown-content">
+                            <a href="#" class="grade-option" data-value="6">6-р анги</a>
+                            <a href="#" class="grade-option" data-value="7">7-р анги</a>
+                            <a href="#" class="grade-option" data-value="8">8-р анги</a>
+                            <a href="#" class="grade-option" data-value="9">9-р анги</a>
+                            <a href="#" class="grade-option" data-value="10">10-р анги</a>
+                            <a href="#" class="grade-option" data-value="11">11-р анги</a>
+                            <a href="#" class="grade-option" data-value="12">12-р анги</a>
+                        </div>
+                    </li>
+
+                    <!-- ХИЧЭЭЛ -->
+                    <li class="dropdown">
+                        <button class="nav-btn main-nav dropdown-btn">Хичээл ▾</button>
+                        <div class="dropdown-content">
+                            <a href="#" class="subject-option" data-value="math">Математик</a>
+                            <a href="#" class="subject-option" data-value="mongol">Монгол хэл</a>
+                            <a href="#" class="subject-option" data-value="literature">Уран зохиол</a>
+                            <a href="#" class="subject-option" data-value="english">Англи хэл</a>
+                            <a href="#" class="subject-option" data-value="physics">Физик</a>
+                            <a href="#" class="subject-option" data-value="chemistry">Хими</a>
+                            <a href="#" class="subject-option" data-value="biology">Биологи</a>
+                            <a href="#" class="subject-option" data-value="geography">Газарзүй</a>
+                            <a href="#" class="subject-option" data-value="history">Түүх</a>
+                            <a href="#" class="subject-option" data-value="cs">Мэдээлэл зүй</a>
+                        </div>
+                    </li>
+
+                    <!-- Танин мэдэхүй -->
+                    <li>
+                        <a href="#" class="nav-btn main-nav" id="knowledgeNav">Танин мэдэхүй</a>
+                    </li>
+
+                    <!-- Тест зохиох -->
+                    <li>
+                        <a href="#" class="nav-btn main-nav" id="generateTestBtn">Тест зохиох</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="auth-container">
+                <button class="nav-btn login-btn">Нэвтрэх</button>
+                <button class="nav-btn signup-btn">Бүртгүүлэх</button>
+            </div>
+        </header>
+
+        <section class="container">
+            <div class="content-side">
+                <h1>Ирээдүйн <br />Боловсрол</h1>
+                <p>Технологийн дэвшлийг ашиглан суралцах шинэ боломж.</p>
+            </div>
+
+            <div class="image-side">
+                <div class="glow-effect"></div>
+                <img src="logo.png" alt="Hero" class="hero-image" />
+            </div>
+        </section>
+    </div>
+
+    <!-- QUIZ PANEL – өргөн болгосон (640px) -->
+    <div class="quiz-panel" id="quizPanel" style="
+        position: fixed;
+        left: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 640px;
+        max-height: 85vh;
+        background: rgba(20, 12, 40, 0.97);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 0 25px rgba(139, 92, 246, 0.5);
+        padding: 18px 20px 16px;
+        z-index: 900;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.25s ease;">
+        
+        <div class="quiz-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <div>
+                <div class="quiz-title" style="font-size:18px;font-weight:700;">Тест</div>
+                <div class="quiz-subtitle" style="font-size:12px;color:#94a3b8;">Асуулт ачааллаж байна...</div>
+            </div>
+            <button class="quiz-close" id="quizCloseBtn" style="
+                background:none;border:none;color:#aaa;font-size:20px;cursor:pointer;">
+                &times;
+            </button>
+        </div>
+
+        <div class="quiz-info-text" style="font-size:11px;color:#9ca3af;margin-bottom:4px;">
+            Асуулт бүр дээр хариултаа сонгоод "Оноо бодох" товчийг дарна уу.
+        </div>
+
+        <div class="quiz-content" id="quizContent" style="
+            margin-top:6px;
+            padding-right:4px;
+            max-height:55vh;
+            overflow-y:auto;">
+        </div>
+
+        <div class="quiz-footer" style="
+            margin-top:8px;
+            border-top:1px solid rgba(148,163,184,0.4);
+            padding-top:6px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;">
+            
+            <button id="quizSubmitBtn" style="
+                flex:1;
+                padding:8px;
+                border-radius:10px;
+                border:none;
+                background:linear-gradient(90deg,#ec4899,#8b5cf6);
+                color:white;
+                font-size:13px;
+                font-weight:600;
+                cursor:pointer;">
+                Оноо бодох
+            </button>
+
+            <div class="quiz-score-text" id="quizScoreText" style="
+                font-size:12px;color:#e5e7eb;text-align:right;min-width:90px;">
+                Оноо: - 
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGIN MODAL -->
+    <div class="modal-overlay" id="authModal" style="
+        display:none;position:fixed;top:0;left:0;width:100%;height:100%;
+        background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);z-index:1000;
+        justify-content:center;align-items:center;">
+
+        <div class="modal-box" style="
+            background:rgba(30,20,50,0.9);
+            border:1px solid rgba(255,255,255,0.1);
+            padding:40px;border-radius:20px;width:400px;
+            box-shadow:0 0 30px rgba(139,92,246,0.3);
+            position:relative;">
+
+            <span class="close-btn" style="
+                position:absolute;top:15px;right:20px;font-size:24px;
+                color:#aaa;cursor:pointer;">&times;</span>
+
+            <div class="modal-tabs" style="
+                display:flex;margin-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.1);">
+                <button class="tab-btn active" id="tabLogin" 
+                    style="flex:1;padding:10px;background:none;border:none;color:white;font-weight:bold;">
+                    Нэвтрэх
+                </button>
+                <button class="tab-btn" id="tabRegister" 
+                    style="flex:1;padding:10px;background:none;border:none;color:#aaa;font-weight:bold;">
+                    Бүртгүүлэх
+                </button>
+            </div>
+
+            <!-- LOGIN FORM -->
+            <form id="loginForm">
+                <div class="form-group" style="margin-bottom:15px;">
+                    <label style="color:#ccc;font-size:14px;">Имэйл хаяг</label>
+                    <input type="email" placeholder="name@example.com" style="
+                        width:100%;padding:12px;border-radius:8px;border:1px solid #444;
+                        background:#0f0518;color:white;">
+                </div>
+
+                <div class="form-group" style="margin-bottom:15px;">
+                    <label style="color:#ccc;font-size:14px;">Нууц үг</label>
+                    <input type="password" placeholder="******" style="
+                        width:100%;padding:12px;border-radius:8px;border:1px solid #444;
+                        background:#0f0518;color:white;">
+                </div>
+
+                <button type="button" class="submit-btn" style="
+                    width:100%;padding:12px;margin-top:10px;border:none;border-radius:8px;
+                    background:linear-gradient(90deg,#d946ef,#8b5cf6);
+                    color:white;font-weight:bold;cursor:pointer;">
+                    Нэвтрэх
+                </button>
+            </form>
+
+            <!-- REGISTER FORM -->
+            <form id="registerForm" style="display:none;">
+                <div class="form-group" style="margin-bottom:15px;">
+                    <label style="color:#ccc;font-size:14px;">Таны нэр</label>
+                    <input type="text" placeholder="Нэрээ бичнэ үү" style="
+                        width:100%;padding:12px;border-radius:8px;border:1px солid #444;
+                        background:#0f0518;color:white;">
+                </div>
+
+                <div class="form-group" style="margin-bottom:15px;">
+                    <label style="color:#ccc;font-size:14px;">Имэйл хаяг</label>
+                    <input type="email" placeholder="name@example.com" style="
+                        width:100%;padding:12px;border-radius:8px;border:1px solid #444;
+                        background:#0f0518;color:white;">
+                </div>
+
+                <div class="form-group" style="margin-bottom:15px;">
+                    <label style="color:#ccc;font-size:14px;">Нууц үг</label>
+                    <input type="password" placeholder="******" style="
+                        width:100%;padding:12px;border-radius:8px;border:1px solid #444;
+                        background:#0f0518;color:white;">
+                </div>
+
+                <div class="form-group" style="margin-bottom:15px;">
+                    <label style="color:#ccc;font-size:14px;">Нууц үг давтах</label>
+                    <input type="password" placeholder="******" style="
+                        width:100%;padding:12px;border-radius:8px;border:1px solid #444;
+                        background:#0f0518;color:white;">
+                </div>
+
+                <button type="button" class="submit-btn" style="
+                    width:100%;padding:12px;margin-top:10px;border:none;border-radius:8px;
+                    background:linear-gradient(90deg,#d946ef,#8b5cf6);
+                    color:white;font-weight:bold;cursor:pointer;">
+                    Бүртгүүлэх
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- ГОЛ JS ФАЙЛ -->
+    <script src="app.js"></script>
+</body>
+</html>
